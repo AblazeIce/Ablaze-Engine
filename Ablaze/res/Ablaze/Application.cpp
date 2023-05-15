@@ -1,10 +1,16 @@
 #include "pch/AblazePch.h"
 #include "Application.h"
+#include "glad/glad.h"
 
 namespace Ablaze
 {
+	Application* Application::s_Instance = nullptr;
+
 	Application::Application()
 	{
+		ABLAZE_CORE_ASSERTS(!s_Instance, "Application already exists");
+		s_Instance = this;
+
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 	}
@@ -26,11 +32,15 @@ namespace Ablaze
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
+		//设置该层的上下文、初始化...
+		layer->OnAttach();
 	}
 
 	void Application::PushOverLayer(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
+		//设置该层的上下文、初始化...
+		layer->OnAttach();
 	}
 
 	bool Application::OnWindowClose(WindowCloseEvent& e)
@@ -49,6 +59,11 @@ namespace Ablaze
 		//ABLAZE_CORE_INFO(e);
 		while (m_isRunning)
 		{
+			////函数指定颜色缓冲区的清除值
+			//glClearColor(1, 0, 0.5, 1);
+			////函数将缓冲区清除为预设值。
+			//glClear(GL_COLOR_BUFFER_BIT);
+
 			m_Window->OnUpdate();
 			for (auto& layer : m_LayerStack) {
 				layer->OnUpdate();

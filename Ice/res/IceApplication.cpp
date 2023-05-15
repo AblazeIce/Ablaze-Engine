@@ -18,6 +18,8 @@ class Ice :public Ablaze::Application
 public:
 	Ice() {
 		PushLayer(new ExampleLayer());
+		PushOverLayer(new Ablaze::ImGuiLayer());
+
 	}
 	~Ice() {}
 };

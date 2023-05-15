@@ -10,6 +10,12 @@
     <Filter Include="Ablaze\Platform">
       <UniqueIdentifier>{88633487-F4EE-A14B-FDFF-2440690AFE4B}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Ablaze\Platform\OpenGL">
+      <UniqueIdentifier>{BCC35CBF-A8BD-8511-912A-1C227DC3EB7D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ImGui">
+      <UniqueIdentifier>{C0FF640D-2C14-8DBE-F595-301E616989EF}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Layer">
       <UniqueIdentifier>{6287950D-CE9B-BDBE-971D-611E03F1B9EF}</UniqueIdentifier>
     </Filter>
@@ -43,11 +49,20 @@
     <ClInclude Include="res\Ablaze\Log.h">
       <Filter>Ablaze</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h">
+      <Filter>Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\WinWindow.h">
       <Filter>Ablaze\Platform</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Window.h">
       <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\ImGui\ImGuiLayer.h">
+      <Filter>ImGui</Filter>
     </ClInclude>
     <ClInclude Include="res\Layer\Layer.h">
       <Filter>Layer</Filter>
@@ -66,8 +81,14 @@
     <ClCompile Include="res\Ablaze\Log.cpp">
       <Filter>Ablaze</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\WinWindow.cpp">
       <Filter>Ablaze\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="res\ImGui\ImGuiLayer.cpp">
+      <Filter>ImGui</Filter>
     </ClCompile>
     <ClCompile Include="res\Layer\Layer.cpp">
       <Filter>Layer</Filter>

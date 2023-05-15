@@ -66,6 +66,8 @@ namespace Ablaze {
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(m_Window);
 
+		//glfwGetProcAddress本身是一个函数、会接收一个 c 字符串、然后返回函数的地址
+		//那个GLADloadproc就是一个强制类型转换
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		ABLAZE_CORE_ASSERTS(status, "Failed to initialize Glad!")
 

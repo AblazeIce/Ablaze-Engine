@@ -80,7 +80,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <AdditionalOptions>/MDd %(AdditionalOptions)</AdditionalOptions>
@@ -103,7 +103,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -130,7 +130,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -161,8 +161,11 @@
     <ClInclude Include="res\Ablaze\Event\KeyEvent.h" />
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h" />
     <ClInclude Include="res\Ablaze\Log.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="res\Ablaze\Platform\WinWindow.h" />
     <ClInclude Include="res\Ablaze\Window.h" />
+    <ClInclude Include="res\ImGui\ImGuiLayer.h" />
     <ClInclude Include="res\Layer\Layer.h" />
     <ClInclude Include="res\Layer\LayerStack.h" />
     <ClInclude Include="res\pch\AblazePch.h" />
@@ -170,7 +173,9 @@
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp" />
     <ClCompile Include="res\Ablaze\Platform\WinWindow.cpp" />
+    <ClCompile Include="res\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="res\Layer\Layer.cpp" />
     <ClCompile Include="res\Layer\LayerStack.cpp" />
     <ClCompile Include="res\pch\AblazePch.cpp">

@@ -15,7 +15,7 @@ outputdir="%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 IncludeDir={}
 IncludeDir["glfw"]="Ablaze/vendor/glfw/include"
 IncludeDir["Glad"]="Ablaze/vendor/Glad/include"
-IncludeDir["imgui"]="Ablaze/vendor/imgui/include"
+IncludeDir["imgui"]="Ablaze/vendor/imgui"
 
 include "Ablaze/vendor/glfw"
 include "Ablaze/vendor/Glad"
