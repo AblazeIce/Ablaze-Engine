@@ -160,11 +160,15 @@
     <ClInclude Include="res\Ablaze\Event\Event.h" />
     <ClInclude Include="res\Ablaze\Event\KeyEvent.h" />
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h" />
+    <ClInclude Include="res\Ablaze\Input.h" />
     <ClInclude Include="res\Ablaze\Log.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="res\Ablaze\Platform\WinWindow.h" />
+    <ClInclude Include="res\Ablaze\Platform\Window\WinInput.h" />
+    <ClInclude Include="res\Ablaze\Platform\Window\WinWindow.h" />
     <ClInclude Include="res\Ablaze\Window.h" />
+    <ClInclude Include="res\Codes\KeyCodes.h" />
+    <ClInclude Include="res\Codes\MouseButtonCodes.h" />
     <ClInclude Include="res\ImGui\ImGuiLayer.h" />
     <ClInclude Include="res\Layer\Layer.h" />
     <ClInclude Include="res\Layer\LayerStack.h" />
@@ -174,7 +178,8 @@
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="res\Ablaze\Platform\WinWindow.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\Window\WinInput.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp" />
     <ClCompile Include="res\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="res\Layer\Layer.cpp" />
     <ClCompile Include="res\Layer\LayerStack.cpp" />

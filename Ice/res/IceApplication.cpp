@@ -6,11 +6,11 @@ public:
 		:Layer("Example") {}
 	void OnUpdate() override
 	{
-		ABLAZE_INFO("ExampleLayer:Update");
+		//ABLAZE_INFO("ExampleLayer:Update");
 	}
 	void OnEvent(Ablaze::Event& event) override
 	{
-		ABLAZE_TRACE("ExampleLayer:{0}", event);
+		//ABLAZE_TRACE("ExampleLayer:{0}", event);
 	}
 };
 class Ice :public Ablaze::Application
