@@ -1,0 +1,9 @@
+[submodule "Ablaze/vendor/imgui"]
+	path = Ablaze/vendor/imgui
+	url = https://github.com/AblazeIce/imgui
+[submodule "Ablaze/vendor/glfw"]
+	path = Ablaze/vendor/glfw
+	url = https://github.com/AblazeIce/glfw
+[submodule "Ablaze/vendor/spdlog"]
+	path = Ablaze/vendor/spdlog
+	url = https://github.com/AblazeIce/spdlog

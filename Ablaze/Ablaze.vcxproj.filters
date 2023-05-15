@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Ablaze">
+      <UniqueIdentifier>{B49CA8A6-A03E-D37C-89F9-E6D0753A5ACD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ablaze\Event">
+      <UniqueIdentifier>{05D56514-F137-F5B8-9ABD-2D6F86FFC03B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ablaze\Platform">
+      <UniqueIdentifier>{88633487-F4EE-A14B-FDFF-2440690AFE4B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Layer">
+      <UniqueIdentifier>{6287950D-CE9B-BDBE-971D-611E03F1B9EF}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{809C880B-ECA5-887C-7521-9F7CE129947C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res\Ablaze.h" />
+    <ClInclude Include="res\Ablaze\Application.h">
+      <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core.h">
+      <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\EntryPoint.h">
+      <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Event\ApplicationEvent.h">
+      <Filter>Ablaze\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Event\Event.h">
+      <Filter>Ablaze\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Event\KeyEvent.h">
+      <Filter>Ablaze\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Event\MouseEvent.h">
+      <Filter>Ablaze\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Log.h">
+      <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\WinWindow.h">
+      <Filter>Ablaze\Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Window.h">
+      <Filter>Ablaze</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Layer\Layer.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Layer\LayerStack.h">
+      <Filter>Layer</Filter>
+    </ClInclude>
+    <ClInclude Include="res\pch\AblazePch.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="res\Ablaze\Application.cpp">
+      <Filter>Ablaze</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Log.cpp">
+      <Filter>Ablaze</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\WinWindow.cpp">
+      <Filter>Ablaze\Platform</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Layer\Layer.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Layer\LayerStack.cpp">
+      <Filter>Layer</Filter>
+    </ClCompile>
+    <ClCompile Include="res\pch\AblazePch.cpp">
+      <Filter>pch</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
