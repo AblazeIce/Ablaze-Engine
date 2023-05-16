@@ -27,7 +27,7 @@ namespace Ablaze {
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
 		// 这里临时是用了GLFW的KeyCode，这一部分会单独放进一个KeyCode文件中，并且用我们自己的KeyCode来实现跨平台
-		io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
+		/*io.KeyMap[ImGuiKey_Tab] = GLFW_KEY_TAB;
 		io.KeyMap[ImGuiKey_LeftArrow] = GLFW_KEY_LEFT;
 		io.KeyMap[ImGuiKey_RightArrow] = GLFW_KEY_RIGHT;
 		io.KeyMap[ImGuiKey_UpArrow] = GLFW_KEY_UP;
@@ -47,7 +47,7 @@ namespace Ablaze {
 		io.KeyMap[ImGuiKey_V] = GLFW_KEY_V;
 		io.KeyMap[ImGuiKey_X] = GLFW_KEY_X;
 		io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
-		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
+		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;*/
 		ImGui_ImplOpenGL3_Init("#version 430");
 	}
 	void ImGuiLayer::OnDetach()
@@ -145,6 +145,7 @@ namespace Ablaze {
 		{
 			io.AddInputCharacter((unsigned short)keycode);
 		}
+		
 		return false;
 	}
 	bool ImGuiLayer::OnWindowResizeEvent(WindowResizeEvent& e)

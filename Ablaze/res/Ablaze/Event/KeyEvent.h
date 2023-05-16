@@ -48,6 +48,6 @@ namespace Ablaze
 			ss << "KeyTypedEvent:" << m_KeyCode;
 			return ss.str();
 		}
-		EVENT_CLASS_TYPE(KeyPressed)
+		EVENT_CLASS_TYPE(KeyTyped)
 	};
 }

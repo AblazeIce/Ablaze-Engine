@@ -6,6 +6,7 @@
 #include "Ablaze/Event/MouseEvent.h"
 #include "glad/glad.h"
 
+#include "Ablaze/Log.h"
 namespace Ablaze {
 	static bool s_GLFWInitialized = false;
 	static void GLFWErrorCallback(int error, const char* description)
@@ -104,18 +105,24 @@ namespace Ablaze {
 			{
 				KeyPressedEvent event(key, 0);
 				data.EventCallback(event);
+				ABLAZE_CORE_ERROR("Keypress:{0}", key);
+
 				break;
 			}
 			case GLFW_RELEASE:
 			{
 				KeyReleasedEvent event(key);
 				data.EventCallback(event);
+				ABLAZE_CORE_ERROR("Keyrelease:{0}", key);
+
 				break;
 			}
 			case GLFW_REPEAT:
 			{
 				KeyPressedEvent event(key, 1);
 				data.EventCallback(event);
+				ABLAZE_CORE_ERROR("Keyrepeat:{0}", key);
+
 				break;
 			}
 			default:
@@ -126,7 +133,7 @@ namespace Ablaze {
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
 			KeyTypedEvent event(keycode);
-
+			ABLAZE_CORE_ERROR("Char:{0}", keycode);
 			data.EventCallback(event);
 		});
 		glfwSetMouseButtonCallback(m_Window, [](GLFWwindow* window, int button, int action, int mods)
