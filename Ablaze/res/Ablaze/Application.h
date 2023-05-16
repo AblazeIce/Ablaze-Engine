@@ -3,7 +3,7 @@
 #include "Ablaze/Window.h"
 #include "Event/ApplicationEvent.h"
 #include "Layer/LayerStack.h"
-
+#include "ImGui/ImGuiLayer.h"
 namespace Ablaze
 {
 
@@ -21,6 +21,7 @@ namespace Ablaze
 		inline static Application& Get() { return *s_Instance; }
 	private:
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_isRunning = true;
 		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
