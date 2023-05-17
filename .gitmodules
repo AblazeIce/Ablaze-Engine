@@ -8,3 +8,6 @@
 [submodule "Ablaze/vendor/glm"]
 	path = Ablaze/vendor/glm
 	url = https://github.com/AblazeIce/glm
+[submodule "Ablaze/vendor/imgui"]
+	path = Ablaze/vendor/imgui
+	url = https://github.com/AblazeIce/imgui

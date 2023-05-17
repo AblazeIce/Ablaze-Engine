@@ -9,6 +9,9 @@
 #include "backends/imgui_impl_glfw.h"
 #include "backends/imgui_impl_opengl3.h"
 
+//#include "Ablaze/Platform/OpenGL/imgui_impl_glfw.h"
+//#include "Ablaze/Platform/OpenGL/imgui_impl_opengl3.h"
+
 namespace Ablaze {
 	ImGuiLayer::ImGuiLayer()
 		:Layer("ImGuiLayer")
@@ -26,44 +29,69 @@ namespace Ablaze {
 		//获得Imgui上下文和系统之间I/O的接口
 		ImGuiIO& io = ImGui::GetIO();
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
-
+		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
+		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
 		
+		ImGuiStyle& style = ImGui::GetStyle();
+		//启用视口后，我们调整WindowRounding/WindowBg，使平台窗口看起来与常规窗口相同
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+		{
+			style.WindowRounding = 0.0f;
+			style.Colors[ImGuiCol_WindowBg].w = 1.0f;
+		}
+
+		/*Platform Binding:用GLFW的库，来监听例如按键输入，鼠标输入之类的事件，后面的
+		true代表了这些输入要不要被callback回imgui*/
+		Application& app = Application::Get();
+		GLFWwindow* window = static_cast<GLFWwindow*>(app.GetWindow().GetNativeWindow());
+		ImGui_ImplGlfw_InitForOpenGL(window, true);
+
+		//Renderer Binding:imgui想知道到底初始化什么GL
 		ImGui_ImplOpenGL3_Init("#version 430");
 	}
 	void ImGuiLayer::OnDetach()
 	{
+		//销毁视窗，VAO，buffer，shader和shader program
+		ImGui_ImplOpenGL3_Shutdown();
+		//取消Callback绑定
+		ImGui_ImplGlfw_Shutdown();
+		ImGui::DestroyContext();
 	}
 	void ImGuiLayer::OnUpdate()
 	{
-		// CreateContext只需要做一次，就可以赋予给一个全局的单例，所以此时已经有了Context
-		ImGuiIO& io = ImGui::GetIO();
-		Application& app = Application::Get();
-		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
-
-		float time = (float)glfwGetTime();
-		io.DeltaTime = m_Time > 0.0f ? (time - m_Time) : (1.0f / 60.0f);
-		m_Time = time;
-
-		//NewFrame提供了需要Render前的一切基本前置需求
-		ImGui_ImplOpenGL3_NewFrame();
-		ImGui::NewFrame();
-
-		//总和要渲染的数据，设置DrawData;选择对应的Renderer
-		ImGui::Render();
-		glClearColor(1.0f,0.0f,0.0f,1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-		//将数据DrawData上传给Renderer  
-		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-
 	}
 	void ImGuiLayer::OnImGuiRender()
 	{
+		static bool show = true;
+		ImGui::ShowDemoWindow();
 	}
 	void ImGuiLayer::Begin()
 	{
+		//创建VertexArray，Shader，Buffer，Attributes等一系列渲染相关的必要Device Object
+		ImGui_ImplOpenGL3_NewFrame();
+		//设定视窗大小，当前DeltaTime，更新鼠标位置，鼠标按键，鼠标光标，更新手柄事件等IO相关的行为。
+		ImGui_ImplGlfw_NewFrame();
+		//处理包括视窗，渲染帧，IO，FPS，DeltaTime，字体，拖曳，鼠标悬停，视窗及渲染数据读写，垃圾回收等
+		ImGui::NewFrame();
 	}
 	void ImGuiLayer::End()
 	{
+		ImGuiIO& io = ImGui::GetIO();
+		Application& app = Application::Get();
+		io.DisplaySize = ImVec2((float)app.GetWindow().GetWidth(), (float)app.GetWindow().GetHeight());
+
+		//总合数据，提交给Renderer，设置DrawData，渲染鼠标光标，总合渲染的顶点数据和顶点Indices数据
+		ImGui::Render();
+		//把之前汇总的数据上传到Renderer，并且进行渲染
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+		if (io.ConfigFlags & ImGuiConfigFlags_ViewportsEnable)
+		{
+			GLFWwindow* backup_current_context = glfwGetCurrentContext();
+			ImGui::UpdatePlatformWindows();
+			ImGui::RenderPlatformWindowsDefault();
+			glfwMakeContextCurrent(backup_current_context);
+		}
 	}
 	//void ImGuiLayer::OnEvent(Event& event)
 	//{

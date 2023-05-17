@@ -116,7 +116,8 @@ project "Ice"
     {
         "Ablaze/vendor/spdlog/include",
         "Ablaze/res",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.imgui}"
     }
         
     links

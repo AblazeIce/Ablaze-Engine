@@ -84,6 +84,9 @@
     <ClInclude Include="res\Ablaze\Log.h">
       <Filter>res\Ablaze</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
@@ -1373,6 +1376,9 @@
     <ClCompile Include="res\Ablaze\Log.cpp">
       <Filter>res\Ablaze</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
@@ -1381,6 +1387,9 @@
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp">
       <Filter>res\Ablaze\Platform\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="res\ImGui\ImGuiBuild.cpp">
+      <Filter>res\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="res\ImGui\ImGuiLayer.cpp">
       <Filter>res\ImGui</Filter>
@@ -1394,6 +1403,5 @@
     <ClCompile Include="res\pch\AblazePch.cpp">
       <Filter>res\pch</Filter>
     </ClCompile>
-    <ClCompile Include="res\ImGui\ImGuiBuild.cpp" />
   </ItemGroup>
 </Project>

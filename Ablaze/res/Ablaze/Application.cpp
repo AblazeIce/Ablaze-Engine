@@ -67,9 +67,15 @@ namespace Ablaze
 			glClearColor(1, 0, 0.5, 1);
 			//函数将缓冲区清除为预设值。
 			glClear(GL_COLOR_BUFFER_BIT);
+
 			for (auto& layer : m_LayerStack) {
 				layer->OnUpdate();
 			}
+			m_ImGuiLayer->Begin();
+			for (auto& layer : m_LayerStack) {
+				layer->OnImGuiRender();
+			}
+			m_ImGuiLayer->End();
 			m_Window->OnUpdate();
 		}
 	}

@@ -162,6 +162,7 @@
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h" />
     <ClInclude Include="res\Ablaze\Input.h" />
     <ClInclude Include="res\Ablaze\Log.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="res\Ablaze\Platform\Window\WinInput.h" />
@@ -593,6 +594,7 @@
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp" />
     <ClCompile Include="res\Ablaze\Platform\Window\WinInput.cpp" />
     <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp" />
