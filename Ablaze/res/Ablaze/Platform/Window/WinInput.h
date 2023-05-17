@@ -6,8 +6,8 @@ namespace Ablaze{
 	protected:
 		virtual bool isKeyPressedImpl(int keycode) override;
 		virtual bool isMouseButtonPressedImpl(int button) override;
-		virtual std::pair<float, float> GetMousePositionImpl()override;
-		virtual float GetMouseXImpl() override;
-		virtual float GetMouseYImpl() override;
+		virtual std::pair<double, double> GetMousePositionImpl()override;
+		virtual double GetMouseXImpl() override;
+		virtual double GetMouseYImpl() override;
 	};
 }

@@ -1,11 +1,15 @@
 #pragma once
 
 #ifdef ABLAZE_PLATFORM_WINDOWS
+#ifdef ABLAZE_DYNAMIC_LINK
 #ifdef ABLAZE_BUILD_DLL
 #define ABLAZE_API _declspec(dllexport)
 #else
 #define ABLAZE_API _declspec(dllimport)
 #endif // ABLAZE_BUILT_IN
+#else
+#define ABLAZE_API
+#endif // ABLAZE_DYNAMIC_LINK
 #else
 #error Ablaze only supports Windows!
 #endif // ABLAZE_PlATFORM_WINDOW

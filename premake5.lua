@@ -21,12 +21,13 @@ IncludeDir["glm"]="Ablaze/vendor/glm"
 include "Ablaze/vendor/glfw"
 include "Ablaze/vendor/Glad"
 include "Ablaze/vendor/imgui"
---include "Ablaze/vendor/glm"
 
 project "Ablaze"
     location "Ablaze"
-    kind "SharedLib"
+    kind "StaticLib"
     language "C++"
+	cppdialect "C++17"
+    staticruntime "on"
 
     targetdir("bin/"..outputdir.."/%{prj.name}")
     targetdir("bin-int/"..outputdir.."/%{prj.name}")
@@ -42,7 +43,6 @@ project "Ablaze"
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
     }
-
     includedirs
     {
         "%{prj.name}/vendor/spdlog/include",
@@ -60,7 +60,6 @@ project "Ablaze"
         "imgui"
     }
     filter "system:windows"
-		cppdialect "C++17"
 		systemversion "latest"
 
 		defines
@@ -68,32 +67,26 @@ project "Ablaze"
 			"ABLAZE_PLATFORM_WINDOWS",
 			"ABLAZE_BUILD_DLL",
             "ABLAZE_ENABLE_ASSERTS",
-			"GLFW_INCLUDE_NONE"
-
+			"GLFW_INCLUDE_NONE",
 		}
-
-	
-	postbuildcommands{
-		("{COPY} %{cfg.buildtarget.relpath} \"../bin/" ..outputdir.. "/Ice/\"")
-	}
 
 	filter "configurations:Debug"
 		defines "ABLAZE_DEBUG"
 		--runtime "Debug"
         buildoptions "/MDd"--指定为多线程动态运行库，d代表Debug模式
-		symbols "On"
+		symbols "on"
 
 	filter "configurations:Release"
 		defines "ABLAZE_RELEASE"
 		--runtime "Release"
         buildoptions "/MD"
-		optimize "On"
+		optimize "on"
 
 	filter "configurations:Dist"
 		defines "ABLAZE_DIST"
 		-- runtime "Release"
         buildoptions "/MD"
-		optimize "On"
+		optimize "on"
 
 
 
@@ -101,6 +94,7 @@ project "Ice"
     location "Ice"
     kind "ConsoleAPP"
     language "C++"
+    cppdialect "C++17"
     staticruntime "off"
     
     targetdir ("bin/" .. outputdir .. "/%{prj.name}")
@@ -126,7 +120,6 @@ project "Ice"
     }
 
     filter "system:windows"
-        cppdialect "C++17"
         systemversion "latest"
     
         defines
@@ -137,14 +130,14 @@ project "Ice"
     filter "configurations:Debug"
         defines "ABLAZE_DEBUG"
         runtime "Debug"
-        symbols "On"
+        symbols "on"
     
     filter "configurations:Release"
         defines "ABLAZE_RELEASE"
         runtime "Release"
-        optimize "On"
+        optimize "on"
     
     filter "configurations:Dist"
         defines "ABLAZE_DIST"
         runtime "Release"
-        optimize "On"
+        optimize "on"

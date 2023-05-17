@@ -31,6 +31,7 @@ namespace Ablaze {
 		io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
 		io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;// Enable Docking
 		io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable; // Enable Multi-Viewport / Platform Windows
+															// 使得imgui窗口可以移出到GLFWwindow外
 		
 		ImGuiStyle& style = ImGui::GetStyle();
 		//启用视口后，我们调整WindowRounding/WindowBg，使平台窗口看起来与常规窗口相同

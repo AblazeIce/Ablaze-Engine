@@ -19,21 +19,21 @@ namespace Ablaze{
 		return state == GLFW_PRESS || state == GLFW_REPEAT;
 	}
 
-	std::pair<float, float> WinInput::GetMousePositionImpl()
+	std::pair<double, double> WinInput::GetMousePositionImpl()
 	{
 		auto window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
 		double xpos, ypos;
 		glfwGetCursorPos(window, &xpos, &ypos);
-		return std::pair<float, float>(xpos, ypos);
+		return std::pair<double, double>(xpos, ypos);
 	}
 
-	float WinInput::GetMouseXImpl()
+	double WinInput::GetMouseXImpl()
 	{
 		auto [x, y] = GetMousePositionImpl();
 		return x;
 	}
 
-	float WinInput::GetMouseYImpl()
+	double WinInput::GetMouseYImpl()
 	{
 		auto [x, y] = GetMousePositionImpl();
 		return y;

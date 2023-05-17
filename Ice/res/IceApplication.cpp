@@ -1,4 +1,6 @@
 #include "Ablaze.h"
+
+#include "imgui.h"
 class ExampleLayer :public Ablaze::Layer
 {
 public:
@@ -11,6 +13,12 @@ public:
 	void OnEvent(Ablaze::Event& event) override
 	{
 		//ABLAZE_TRACE("ExampleLayer:{0}", event);
+	}
+	void OnImGuiRender() override
+	{
+		ImGui::Begin("Test");
+		ImGui::Text("Hello World");
+		ImGui::End();
 	}
 };
 class Ice :public Ablaze::Application
