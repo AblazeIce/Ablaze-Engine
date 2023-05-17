@@ -22,5 +22,6 @@ namespace Ablaze {
 		//那个GLADloadproc就是一个强制类型转换
 		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 		ABLAZE_CORE_ASSERTS(status, "Failed to initialize Glad!")
+
 	}
 }

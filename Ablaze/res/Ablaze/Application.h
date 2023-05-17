@@ -25,6 +25,7 @@ namespace Ablaze
 		bool m_isRunning = true;
 		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
+		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
 	private:
 		static Application* s_Instance;
 
