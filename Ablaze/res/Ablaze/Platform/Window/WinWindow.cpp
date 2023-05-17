@@ -4,7 +4,8 @@
 #include "Ablaze/Event/ApplicationEvent.h"
 #include "Ablaze/Event/KeyEvent.h"
 #include "Ablaze/Event/MouseEvent.h"
-#include "glad/glad.h"
+
+#include "Ablaze/Platform/OpenGL/OpenGLContext.h"
 
 #include "Ablaze/Log.h"
 namespace Ablaze {
@@ -31,8 +32,7 @@ namespace Ablaze {
 	{
 		//接受窗口Event
 		glfwPollEvents();
-		//将参数window关联的后缓存画面呈现给用户。通常是通过窗口的前后缓存的交换来完成的。
-		glfwSwapBuffers(m_Window);
+		m_OpenGLContext->SwapBuffers();
 	}
 
 	void WinWindow::SetVSync(bool enabled)
@@ -63,16 +63,13 @@ namespace Ablaze {
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_GLFWInitialized = true;
 		}
-
+			
 		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		glfwMakeContextCurrent(m_Window);
+		
+		m_OpenGLContext = new OpenGLContext(m_Window);
+		m_OpenGLContext->Init();
 
-		//glfwGetProcAddress本身是一个函数、会接收一个 c 字符串、然后返回函数的地址
-		//那个GLADloadproc就是一个强制类型转换
-		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
-		ABLAZE_CORE_ASSERTS(status, "Failed to initialize Glad!")
-
-			glfwSetWindowUserPointer(m_Window, &m_Data);//设置窗口关联的用户数据指针。这里GLFW仅做存储，不做任何的特殊处理和应用
+		glfwSetWindowUserPointer(m_Window, &m_Data);//设置窗口关联的用户数据指针。这里GLFW仅做存储，不做任何的特殊处理和应用
 		SetVSync(true);
 #pragma region 设置GlFW回调
 		//当m_Window窗口大小变化时，后面回调函数将会触发

@@ -58,11 +58,8 @@ namespace Ablaze
 
 	void Application::Run()
 	{
-		//WindowResizeEvent e(1920, 1080);
-		//ABLAZE_CORE_INFO(e);
 		while (m_isRunning)
 		{
-
 			//函数指定颜色缓冲区的清除值
 			glClearColor(1, 0, 0.5, 1);
 			//函数将缓冲区清除为预设值。

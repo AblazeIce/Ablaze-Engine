@@ -19,7 +19,7 @@ public:
 		ImGui::Begin("Test");
 		ImGui::Text("Hello World");
 		ImGui::End();
-	}
+	} 
 };
 class Ice :public Ablaze::Application
 {

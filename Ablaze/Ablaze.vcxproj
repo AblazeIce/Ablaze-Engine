@@ -146,6 +146,8 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="res\Ablaze\GraphicsContext.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="res\Ablaze.h" />
     <ClInclude Include="res\Ablaze\Application.h" />
     <ClInclude Include="res\Ablaze\Core.h" />
@@ -586,6 +588,7 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp" />

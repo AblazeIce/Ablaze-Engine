@@ -1,7 +1,7 @@
 #pragma once
 #include "Ablaze/Window.h"
 #include "GLFW/glfw3.h"
-
+#include "Ablaze/GraphicsContext.h"
 namespace Ablaze {
 	class WinWindow :public Window {
 	public:
@@ -25,6 +25,7 @@ namespace Ablaze {
 	private:
 		GLFWwindow* m_Window;
 
+		GraphicsContext* m_OpenGLContext;
 		struct WindowData
 		{
 			std::string Title;
