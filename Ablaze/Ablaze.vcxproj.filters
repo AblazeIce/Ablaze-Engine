@@ -19,6 +19,9 @@
     <Filter Include="res\Ablaze\Platform\Window">
       <UniqueIdentifier>{8812856A-7422-313B-DDDB-9559C90A20D4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res\Ablaze\Render">
+      <UniqueIdentifier>{9C2B6438-0842-62CE-51B9-EDEFBD0E3356}</UniqueIdentifier>
+    </Filter>
     <Filter Include="res\Codes">
       <UniqueIdentifier>{CC98860E-3803-3B85-8141-EC2AEDEA18DA}</UniqueIdentifier>
     </Filter>
@@ -84,6 +87,12 @@
     <ClInclude Include="res\Ablaze\Log.h">
       <Filter>res\Ablaze</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
@@ -98,6 +107,18 @@
     </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\Window\WinWindow.h">
       <Filter>res\Ablaze\Platform\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Buffer.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\GraphicsContext.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Renderer.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Shader.h">
+      <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Window.h">
       <Filter>res\Ablaze</Filter>
@@ -1368,12 +1389,6 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\GraphicsContext.h">
-      <Filter>res\Ablaze</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp">
@@ -1381,6 +1396,12 @@
     </ClCompile>
     <ClCompile Include="res\Ablaze\Log.cpp">
       <Filter>res\Ablaze</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
@@ -1393,6 +1414,15 @@
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp">
       <Filter>res\Ablaze\Platform\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Buffer.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Renderer.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Shader.cpp">
+      <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\ImGui\ImGuiBuild.cpp">
       <Filter>res\ImGui</Filter>
@@ -1408,9 +1438,6 @@
     </ClCompile>
     <ClCompile Include="res\pch\AblazePch.cpp">
       <Filter>res\pch</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

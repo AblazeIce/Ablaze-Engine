@@ -1,7 +1,7 @@
 #pragma once
 #include "Ablaze/Window.h"
 #include "GLFW/glfw3.h"
-#include "Ablaze/GraphicsContext.h"
+#include "Ablaze/Render/GraphicsContext.h"
 namespace Ablaze {
 	class WinWindow :public Window {
 	public:

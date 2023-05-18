@@ -146,8 +146,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="res\Ablaze\GraphicsContext.h" />
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="res\Ablaze.h" />
     <ClInclude Include="res\Ablaze\Application.h" />
     <ClInclude Include="res\Ablaze\Core.h" />
@@ -158,11 +156,17 @@
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h" />
     <ClInclude Include="res\Ablaze\Input.h" />
     <ClInclude Include="res\Ablaze\Log.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="res\Ablaze\Platform\Window\WinInput.h" />
     <ClInclude Include="res\Ablaze\Platform\Window\WinWindow.h" />
+    <ClInclude Include="res\Ablaze\Render\Buffer.h" />
+    <ClInclude Include="res\Ablaze\Render\GraphicsContext.h" />
+    <ClInclude Include="res\Ablaze\Render\Renderer.h" />
+    <ClInclude Include="res\Ablaze\Render\Shader.h" />
     <ClInclude Include="res\Ablaze\Window.h" />
     <ClInclude Include="res\Codes\KeyCodes.h" />
     <ClInclude Include="res\Codes\MouseButtonCodes.h" />
@@ -588,13 +592,17 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp" />
     <ClCompile Include="res\Ablaze\Platform\Window\WinInput.cpp" />
     <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp" />
+    <ClCompile Include="res\Ablaze\Render\Buffer.cpp" />
+    <ClCompile Include="res\Ablaze\Render\Renderer.cpp" />
+    <ClCompile Include="res\Ablaze\Render\Shader.cpp" />
     <ClCompile Include="res\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="res\ImGui\ImGuiLayer.cpp" />
     <ClCompile Include="res\Layer\Layer.cpp" />

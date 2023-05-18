@@ -4,6 +4,8 @@
 #include "Event/ApplicationEvent.h"
 #include "Layer/LayerStack.h"
 #include "ImGui/ImGuiLayer.h"
+#include "Ablaze/Render/Shader.h"
+#include "Ablaze/Render/Buffer.h"
 namespace Ablaze
 {
 
@@ -25,7 +27,10 @@ namespace Ablaze
 		bool m_isRunning = true;
 		bool OnWindowClose(WindowCloseEvent& e);
 		LayerStack m_LayerStack;
-		unsigned int m_VertexArray, m_VertexBuffer, m_IndexBuffer;
+		unsigned int m_VertexArray;
+		std::unique_ptr<VertexBuffer> m_VertexBuffer;
+		std::unique_ptr<IndexBuffer> m_IndexBuffer;
+		std::unique_ptr<Shader> m_Shader;
 	private:
 		static Application* s_Instance;
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "Ablaze/GraphicsContext.h"
+#include "Ablaze/Render/GraphicsContext.h"
 #include "GLFW/glfw3.h"
 
 namespace Ablaze {
