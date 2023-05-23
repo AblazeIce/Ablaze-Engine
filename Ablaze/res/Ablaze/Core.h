@@ -16,7 +16,7 @@
 
 #ifdef ABLAZE_ENABLE_ASSERTS
 #define ABLAZE_ASSERTS(x,...) {if(!(x)){ABLAZE_ERROR("Assertion Failed: {0}",__VA_ARGS__);__debugbreak();}}
-#define ABLAZE_CORE_ASSERTS(x,...) {if(!(x)){ABLAZE_ERROR("Assertion Failed: {0}",__VA_ARGS__);__debugbreak();}}
+#define ABLAZE_CORE_ASSERTS(x,...) {if(!(x)){ABLAZE_CORE_ERROR("Assertion Failed: {0}",__VA_ARGS__);__debugbreak();}}
 #else
 #define ABLAZE_ASSERTS(X,...)
 #define ABLAZE_CORE_ASSERTS(X,...)

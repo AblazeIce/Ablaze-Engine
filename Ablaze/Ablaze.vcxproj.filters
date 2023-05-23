@@ -1389,6 +1389,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\VertexArray.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp">
@@ -1439,5 +1441,7 @@
     <ClCompile Include="res\pch\AblazePch.cpp">
       <Filter>res\pch</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\VertexArray.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
 </Project>
