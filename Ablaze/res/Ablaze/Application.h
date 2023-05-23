@@ -7,6 +7,8 @@
 #include "Ablaze/Render/Shader.h"
 #include "Ablaze/Render/Buffer.h"
 #include "Render/VertexArray.h"
+#include "Render/OrthographicCamera.h"
+
 namespace Ablaze
 {
 
@@ -32,6 +34,8 @@ namespace Ablaze
 		std::shared_ptr<VertexBuffer> m_VertexBuffer;
 		std::shared_ptr<IndexBuffer> m_IndexBuffer;
 		std::shared_ptr<Shader> m_Shader;
+
+		OrthographicCamera m_Camera;
 	private:
 		static Application* s_Instance;
 

@@ -8,9 +8,9 @@ namespace Ablaze {
 	{
 		switch (Renderer::GetRendererAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			ABLAZE_CORE_ASSERTS(false, "RendererAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return new OpenGLVertexBuffer(vertices, size);
 		}
 		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");
@@ -20,9 +20,9 @@ namespace Ablaze {
 	{
 		switch (Renderer::GetRendererAPI())
 		{
-		case RendererAPI::None:
+		case RendererAPI::API::None:
 			ABLAZE_CORE_ASSERTS(false, "RendererAPI::None is currently not supported"); return nullptr;
-		case RendererAPI::OpenGL:
+		case RendererAPI::API::OpenGL:
 			return new OpenGLIndexBuffer(indices, size);
 		}
 		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");

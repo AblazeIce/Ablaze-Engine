@@ -1,6 +1,6 @@
 #include "pch/AblazePch.h"
 #include "Application.h"
-#include "glad/glad.h"
+#include "Ablaze/Render/Renderer.h"
 
 namespace Ablaze
 {
@@ -8,6 +8,7 @@ namespace Ablaze
 	Application* Application::s_Instance = nullptr;
 
 	Application::Application()
+		:m_Camera(-1.0f,1.0f,-1.0f,1.0f)
 	{
 		ABLAZE_CORE_ASSERTS(!s_Instance, "Application already exists");
 		s_Instance = this;
@@ -48,13 +49,14 @@ namespace Ablaze
 			layout(location=0) in vec3 a_Position;
 			layout(location=1) in vec4 a_Color;
 
+			uniform mat4 u_ViewProjection;
 			out vec3 v_Position;
 			out vec4 v_Color;
 			void main()
 			{	
 				v_Color=a_Color;
 				v_Position=a_Position;
-				gl_Position=vec4(a_Position,1.0);
+				gl_Position=u_ViewProjection*vec4(a_Position,1.0);
 			}
 		)";
 		std::string pragmentSrc = R"(
@@ -114,14 +116,15 @@ namespace Ablaze
 	{
 		while (m_isRunning)
 		{
-			//函数指定颜色缓冲区的清除值
-			glClearColor(0, 0, 0, 1);
-			//函数将缓冲区清除为预设值。
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0,0,0,1 });
+			RenderCommand::Clear();
 
-			m_Shader->Bind();
-			m_VertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, m_IndexBuffer->GetCount(), GL_UNSIGNED_INT, nullptr);
+			//m_Camera.SetPosition({0.5, 0.5, 0.0});
+			m_Camera.SetRotation(25.0f);
+			Renderer::BeginScene(m_Camera);
+			Renderer::Submit(m_VertexArray,m_Shader);
+
+			Renderer::EndScene();
 
 			for (auto& layer : m_LayerStack) {
 				layer->OnUpdate();

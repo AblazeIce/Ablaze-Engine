@@ -1,13 +1,19 @@
 #pragma once
+#include "RenderCommand.h"
+#include "OrthographicCamera.h"
+#include "Shader.h"
 namespace Ablaze {
-	enum class RendererAPI
-	{
-		None = 0, OpenGL = 1
-	};
+	
 	class Renderer {
 	public:
-		inline static RendererAPI GetRendererAPI() { return m_RendererAPI; }
+		static void BeginScene(OrthographicCamera& camera);
+		static void EndScene();
+		static void Submit(const std::shared_ptr<VertexArray>& vertexArray,const std::shared_ptr<Shader>& shader);
+		inline static RendererAPI::API GetRendererAPI() { return RendererAPI::GetAPI(); }
 	private:
-		static RendererAPI m_RendererAPI;
+		struct SceneData {
+			glm::mat4 ViewProjectionMatrix;
+		};
+		static SceneData* m_SceneData;
 	};
 }
