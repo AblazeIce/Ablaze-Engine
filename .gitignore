@@ -8,3 +8,5 @@ Ablaze/obj/
 *.user
 *.sln
 *.pch
+*.vcxproj
+*.filters

@@ -7,6 +7,9 @@
     <Filter Include="res\Ablaze">
       <UniqueIdentifier>{CD75C8D9-B92D-0A27-2235-E3820E0CA517}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res\Ablaze\Core">
+      <UniqueIdentifier>{45420404-B1CD-71C8-BADE-F4BC26E9CDC8}</UniqueIdentifier>
+    </Filter>
     <Filter Include="res\Ablaze\Event">
       <UniqueIdentifier>{DE5CB484-CA55-D3D6-F387-B85BDFDFB2E2}</UniqueIdentifier>
     </Filter>
@@ -66,6 +69,9 @@
     <ClInclude Include="res\Ablaze\Core.h">
       <Filter>res\Ablaze</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\Timestep.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\EntryPoint.h">
       <Filter>res\Ablaze</Filter>
     </ClInclude>
@@ -93,6 +99,12 @@
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
@@ -114,10 +126,22 @@
     <ClInclude Include="res\Ablaze\Render\GraphicsContext.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\OrthographicCamera.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\RenderCommand.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Render\Renderer.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\RendererAPI.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Render\Shader.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\VertexArray.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Window.h">
@@ -1389,12 +1413,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Render\VertexArray.h" />
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h" />
-    <ClInclude Include="res\Ablaze\Render\RendererAPI.h" />
-    <ClInclude Include="res\Ablaze\Render\RenderCommand.h" />
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h" />
-    <ClInclude Include="res\Ablaze\Render\OrthographicCamera.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp">
@@ -1407,6 +1428,12 @@
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp">
@@ -1424,10 +1451,22 @@
     <ClCompile Include="res\Ablaze\Render\Buffer.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\OrthographicCamera.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\RenderCommand.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
     <ClCompile Include="res\Ablaze\Render\Renderer.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\RendererAPI.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
     <ClCompile Include="res\Ablaze\Render\Shader.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\VertexArray.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\ImGui\ImGuiBuild.cpp">
@@ -1445,11 +1484,8 @@
     <ClCompile Include="res\pch\AblazePch.cpp">
       <Filter>res\pch</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Render\VertexArray.cpp" />
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp" />
-    <ClCompile Include="res\Ablaze\Render\RendererAPI.cpp" />
-    <ClCompile Include="res\Ablaze\Render\RenderCommand.cpp" />
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp" />
-    <ClCompile Include="res\Ablaze\Render\OrthographicCamera.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

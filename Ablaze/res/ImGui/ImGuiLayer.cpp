@@ -58,9 +58,6 @@ namespace Ablaze {
 		ImGui_ImplGlfw_Shutdown();
 		ImGui::DestroyContext();
 	}
-	void ImGuiLayer::OnUpdate()
-	{
-	}
 	void ImGuiLayer::OnImGuiRender()
 	{
 		static bool show = true;

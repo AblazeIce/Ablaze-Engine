@@ -1,6 +1,7 @@
 #pragma once
 #include "Ablaze/Core.h"
 #include "Ablaze/Event/Event.h"
+#include "Ablaze/Core/Timestep.h"
 
 namespace Ablaze {
 	class ABLAZE_API Layer {
@@ -10,7 +11,7 @@ namespace Ablaze {
 
 		virtual void OnAttach() {}  
 		virtual void OnDetach() {}
-		virtual void OnUpdate() {}
+		virtual void OnUpdate(Timestep timestep) {}
 		virtual void OnImGuiRender(){}
 		virtual void OnEvent(Event& event) {}
 	protected:
