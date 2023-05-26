@@ -8,29 +8,29 @@ class ExampleLayer :public Ablaze::Layer
 {
 public:
 	ExampleLayer()
-		:Layer("Example"),m_Camera(-2.0f,2.0f, -2.0f, 2.0f),m_CameraPosition(0.0f),
-		m_TrianglePosition(0.0f),m_TriangleColor(1.0f)
+		:Layer("Example"),m_Camera(-1.0f,1.0f, -0.7f, 0.7f),m_CameraPosition(0.0f)
 	{
 		m_VertexArray.reset(Ablaze::VertexArray::Create());
 
 
-		float vertices[3 * 7] = {
-			-0.5f,-0.5f,0.0f,1.0f,0.0f,0.0f,1.0f,
-			 0.5f,-0.5f,0.0f,0.0f,1.0f,0.0f,1.0f,
-			 0.0f, 0.5f,0.0f,0.0f,0.0f,1.0f,1.0f
+		float vertices[4 * 5] = {
+			-0.5f,-0.5f,0.0f,0.0f,0.0f,
+			 0.5f,-0.5f,0.0f,1.0f,0.0f,
+			 0.5f, 0.5f,0.0f,1.0f,1.0f,
+			-0.5f, 0.5f,0.0f,0.0f,1.0f
 		};
 		m_VertexBuffer.reset(Ablaze::VertexBuffer::Create(vertices, sizeof(vertices)));
 
 		Ablaze::BufferLayout layout = {
 			{Ablaze::ShaderDataType::Float3,"a_Position"},
-			{Ablaze::ShaderDataType::Float4, "a_Color"}
+			{Ablaze::ShaderDataType::Float2, "a_TexCoord"}
 		};
 		m_VertexBuffer->SetLayout(layout);
 
 		m_VertexArray->AddVertexBuffer(m_VertexBuffer);
 
 
-		uint32_t indices[3] = { 0,1,2 };
+		uint32_t indices[6] = { 0,1,2,0,2,3 };
 		m_IndexBuffer.reset(Ablaze::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
 
 		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
@@ -39,16 +39,16 @@ public:
 			#version 330 core	
 
 			layout(location=0) in vec3 a_Position;
-			layout(location=1) in vec4 a_Color;
+			layout(location=1) in vec2 a_TexCoord;
 
 			uniform mat4 u_ViewProjection;
 			uniform mat4 u_Transform;
 			out vec3 v_Position;
-			out vec4 v_Color;
+			out vec2 v_TexCoord;
 			void main()
 			{	
-				v_Color=a_Color;
 				v_Position=a_Position;
+				v_TexCoord=a_TexCoord;
 				gl_Position=u_ViewProjection*u_Transform*vec4(a_Position,1.0);
 			}
 		)";
@@ -58,14 +58,18 @@ public:
 			layout(location=0) out vec4 color;
 			
 			in vec3 v_Position;
-			in vec4 v_Color;
-			uniform vec3 u_Color;
+			in vec2 v_TexCoord;
+			uniform sampler2D u_Texture;
 			void main()
 			{
-				color=vec4(u_Color,1.0f);
+				color=texture(u_Texture,v_TexCoord);
 			}
 		)";
 		m_Shader.reset(Ablaze::Shader::Create(vertexSrc, pragmentSrc));
+
+		m_Texture.reset(Ablaze::Texture2D::Create("Assets/Textures/1.png"));
+		m_spongebobTexture.reset(Ablaze::Texture2D::Create("Assets/Textures/spongebob.png"));
+		std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformInt("m_Texture", 0);
 	}
 	void OnUpdate(Ablaze::Timestep timestep) override
 	{
@@ -84,23 +88,24 @@ public:
 		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_D))
 			m_CameraRotation += m_CameraRotationSpeed * timestep;
 
-		if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_J))
-			m_TrianglePosition.x += m_CameraMoveSpeed * timestep;
-		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_L))
-			m_TrianglePosition.x -= m_CameraMoveSpeed * timestep;
-		if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_I))
-			m_TrianglePosition.y -= m_CameraMoveSpeed * timestep;
-		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_K))
-			m_TrianglePosition.y += m_CameraMoveSpeed * timestep;
 		Ablaze::RenderCommand::SetClearColor({ 0,0,0,1 });
 		Ablaze::RenderCommand::Clear();
 
 		m_Camera.SetPosition(m_CameraPosition);
 		m_Camera.SetRotation(m_CameraRotation);
 		Ablaze::Renderer::BeginScene(m_Camera);
-		std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
-		Ablaze::Renderer::Submit(m_VertexArray, m_Shader,glm::translate(glm::mat4(1.0f),m_TrianglePosition));
-		
+		//std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
+		/*for (int i = 0; i < 10; ++i) {
+			for (int j = 0; j < 10; ++j) {
+				Ablaze::Renderer::Submit(m_VertexArray, m_Shader,glm::translate(glm::mat4(1.0f),{1.1f*i,1.1f*j,0.0f}));
+
+			}
+		}*/
+		m_spongebobTexture->Bind();
+		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
+		m_Texture->Bind();
+		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
+
 		Ablaze::Renderer::EndScene();
 
 	}
@@ -109,15 +114,14 @@ public:
 	}
 	void OnImGuiRender() override
 	{
-		ImGui::Begin("Setting");
-		ImGui::ColorEdit3("Triangle Color", glm::value_ptr(m_TriangleColor));
-		ImGui::End();
+		
 	} 
 private:
 	std::shared_ptr<Ablaze::VertexArray> m_VertexArray;
 	std::shared_ptr<Ablaze::VertexBuffer> m_VertexBuffer;
 	std::shared_ptr<Ablaze::IndexBuffer> m_IndexBuffer;
 	std::shared_ptr<Ablaze::Shader> m_Shader;
+	std::shared_ptr<Ablaze::Texture2D> m_Texture,m_spongebobTexture;
 
 	glm::vec3 m_CameraPosition;
 	float m_CameraRotation = 0.0f;
@@ -125,8 +129,6 @@ private:
 	float m_CameraRotationSpeed = 100.0f;
 	Ablaze::OrthographicCamera m_Camera;
 
-	glm::vec3 m_TrianglePosition;
-	glm::vec3 m_TriangleColor;
 };
 class Ice :public Ablaze::Application
 {

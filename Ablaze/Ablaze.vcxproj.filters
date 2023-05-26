@@ -58,6 +58,9 @@
     <Filter Include="vendor\glm\glm\gtx">
       <UniqueIdentifier>{B3A6A76B-9F8A-68C1-08EB-6214F4ED5243}</UniqueIdentifier>
     </Filter>
+    <Filter Include="vendor\stb_image">
+      <UniqueIdentifier>{0DA0BA59-F998-D9AB-22CB-BE300E23B9B7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="res\Ablaze.h">
@@ -102,6 +105,12 @@
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClInclude>
@@ -139,6 +148,9 @@
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\Shader.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Texture.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\VertexArray.h">
@@ -1413,8 +1425,8 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    <ClInclude Include="vendor\stb_image\stb_image.h">
+      <Filter>vendor\stb_image</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -1431,6 +1443,12 @@
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.cpp">
       <Filter>res\Ablaze\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp">
@@ -1466,6 +1484,9 @@
     <ClCompile Include="res\Ablaze\Render\Shader.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Texture.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
     <ClCompile Include="res\Ablaze\Render\VertexArray.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
@@ -1484,8 +1505,8 @@
     <ClCompile Include="res\pch\AblazePch.cpp">
       <Filter>res\pch</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp">
+      <Filter>vendor\stb_image</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

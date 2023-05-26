@@ -1,7 +1,7 @@
 #include "pch/AblazePch.h"
 #include "Application.h"
 #include "GLFW/glfw3.h"
-
+#include "Render/Renderer.h"
 namespace Ablaze
 {
 	
@@ -14,6 +14,9 @@ namespace Ablaze
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
+
+		//Æô¶¯»ìºÏ
+		Renderer::Init();
 
 		m_ImGuiLayer =new ImGuiLayer();
 		PushOverLayer(m_ImGuiLayer);

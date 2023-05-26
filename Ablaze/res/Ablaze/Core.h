@@ -1,4 +1,5 @@
 #pragma once
+#include <memory>
 
 #ifdef ABLAZE_PLATFORM_WINDOWS
 #ifdef ABLAZE_DYNAMIC_LINK
@@ -41,3 +42,11 @@
 //表示绑定函数 fun 的第三个参数为 3，而fun 的第一，二个参数分别由调用 f3 的第二，一个参数指定
 //注意： f2  和  f3 的区别。
 //f3(1, 2);												//print: x=2,y=1,z=3
+
+namespace Ablaze {
+	template<typename T>
+	using Scope = std::unique_ptr<T>;
+
+	template<typename T>
+	using Ref = std::shared_ptr<T>;
+}

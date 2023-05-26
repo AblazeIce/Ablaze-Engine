@@ -77,7 +77,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
@@ -99,7 +99,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -125,7 +125,7 @@
       <PrecompiledHeaderFile>pch/AblazePch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
       <PreprocessorDefinitions>ABLAZE_PLATFORM_WINDOWS;ABLAZE_BUILD_DLL;ABLAZE_ENABLE_ASSERTS;GLFW_INCLUDE_NONE;ABLAZE_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>vendor\spdlog\include;res;vendor\glfw\include;vendor\Glad\include;vendor\imgui;vendor\glm;vendor\stb_image;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
@@ -146,7 +146,6 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h" />
     <ClInclude Include="res\Ablaze.h" />
     <ClInclude Include="res\Ablaze\Application.h" />
     <ClInclude Include="res\Ablaze\Core.h" />
@@ -161,6 +160,8 @@
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h" />
+    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h" />
@@ -174,6 +175,7 @@
     <ClInclude Include="res\Ablaze\Render\Renderer.h" />
     <ClInclude Include="res\Ablaze\Render\RendererAPI.h" />
     <ClInclude Include="res\Ablaze\Render\Shader.h" />
+    <ClInclude Include="res\Ablaze\Render\Texture.h" />
     <ClInclude Include="res\Ablaze\Render\VertexArray.h" />
     <ClInclude Include="res\Ablaze\Window.h" />
     <ClInclude Include="res\Codes\KeyCodes.h" />
@@ -598,14 +600,16 @@
     <ClInclude Include="vendor\glm\glm\vec3.hpp" />
     <ClInclude Include="vendor\glm\glm\vec4.hpp" />
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp" />
+    <ClInclude Include="vendor\stb_image\stb_image.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp" />
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp" />
+    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp" />
@@ -617,6 +621,7 @@
     <ClCompile Include="res\Ablaze\Render\Renderer.cpp" />
     <ClCompile Include="res\Ablaze\Render\RendererAPI.cpp" />
     <ClCompile Include="res\Ablaze\Render\Shader.cpp" />
+    <ClCompile Include="res\Ablaze\Render\Texture.cpp" />
     <ClCompile Include="res\Ablaze\Render\VertexArray.cpp" />
     <ClCompile Include="res\ImGui\ImGuiBuild.cpp" />
     <ClCompile Include="res\ImGui\ImGuiLayer.cpp" />
@@ -625,6 +630,7 @@
     <ClCompile Include="res\pch\AblazePch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="vendor\stb_image\stb_image.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\glfw\glfw.vcxproj">

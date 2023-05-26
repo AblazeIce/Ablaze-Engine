@@ -4,4 +4,5 @@
 
 namespace Ablaze {
 	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;
+	
 }

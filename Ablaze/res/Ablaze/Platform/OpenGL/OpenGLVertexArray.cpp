@@ -39,6 +39,7 @@ namespace Ablaze {
 	void OpenGLVertexArray::AddVertexBuffer(const std::shared_ptr<VertexBuffer>& vertexBuffer)
 	{
 		ABLAZE_CORE_ASSERTS(vertexBuffer->GetLayout().GetElements().size(), "Vertex Buffer has no layout!");
+
 		glBindVertexArray(m_RendererID);
 		vertexBuffer->Bind();
 		const auto& layout = vertexBuffer->GetLayout();

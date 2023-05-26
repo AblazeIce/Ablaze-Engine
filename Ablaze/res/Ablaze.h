@@ -16,6 +16,7 @@
 
 #include "Ablaze/Render/Shader.h"
 #include "Ablaze/Render/Buffer.h"
+#include "Ablaze/Render/Texture.h"
 #include "Ablaze/Render/VertexArray.h"
 
 #include "Ablaze/Render/OrthographicCamera.h"

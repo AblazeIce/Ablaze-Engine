@@ -17,6 +17,7 @@ IncludeDir["glfw"]="Ablaze/vendor/glfw/include"
 IncludeDir["Glad"]="Ablaze/vendor/Glad/include"
 IncludeDir["imgui"]="Ablaze/vendor/imgui"
 IncludeDir["glm"]="Ablaze/vendor/glm"
+IncludeDir["stb_image"]="Ablaze/vendor/stb_image"
 
 include "Ablaze/vendor/glfw"
 include "Ablaze/vendor/Glad"
@@ -40,8 +41,11 @@ project "Ablaze"
     {
         "%{prj.name}/res/**.h",
         "%{prj.name}/res/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.cpp",
+        "%{prj.name}/vendor/stb_image/**.h",
         "%{prj.name}/vendor/glm/glm/**.hpp",
         "%{prj.name}/vendor/glm/glm/**.inl"
+        
     }
     includedirs
     {
@@ -50,7 +54,8 @@ project "Ablaze"
         "%{IncludeDir.glfw}",
         "%{IncludeDir.Glad}",
         "%{IncludeDir.imgui}",
-        "%{IncludeDir.glm}"
+        "%{IncludeDir.glm}",
+        "%{IncludeDir.stb_image}"
     }
 
     links{
