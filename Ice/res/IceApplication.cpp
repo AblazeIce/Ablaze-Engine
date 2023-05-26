@@ -10,7 +10,7 @@ public:
 	ExampleLayer()
 		:Layer("Example"),m_Camera(-1.0f,1.0f, -0.7f, 0.7f),m_CameraPosition(0.0f)
 	{
-		m_VertexArray.reset(Ablaze::VertexArray::Create());
+		m_VertexArray=Ablaze::VertexArray::Create();
 
 
 		float vertices[4 * 5] = {
@@ -19,7 +19,7 @@ public:
 			 0.5f, 0.5f,0.0f,1.0f,1.0f,
 			-0.5f, 0.5f,0.0f,0.0f,1.0f
 		};
-		m_VertexBuffer.reset(Ablaze::VertexBuffer::Create(vertices, sizeof(vertices)));
+		m_VertexBuffer=Ablaze::VertexBuffer::Create(vertices, sizeof(vertices));
 
 		Ablaze::BufferLayout layout = {
 			{Ablaze::ShaderDataType::Float3,"a_Position"},
@@ -31,14 +31,14 @@ public:
 
 
 		uint32_t indices[6] = { 0,1,2,0,2,3 };
-		m_IndexBuffer.reset(Ablaze::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t)));
+		m_IndexBuffer=Ablaze::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
 		m_VertexArray->SetIndexBuffer(m_IndexBuffer);
 
-		m_Shader.reset(Ablaze::Shader::Create("Assets/Shaders/Texture.hlsl"));
+		auto m_Shader=m_ShaderLibrary.Load("Assets/Shaders/Texture.hlsl");
 
-		m_Texture.reset(Ablaze::Texture2D::Create("Assets/Textures/1.png"));
-		m_spongebobTexture.reset(Ablaze::Texture2D::Create("Assets/Textures/spongebob.png"));
+		m_Texture=Ablaze::Texture2D::Create("Assets/Textures/1.png");
+		m_spongebobTexture=Ablaze::Texture2D::Create("Assets/Textures/spongebob.png");
 		std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformInt("m_Texture", 0);
 	}
 	void OnUpdate(Ablaze::Timestep timestep) override
@@ -72,6 +72,7 @@ public:
 			}
 		}*/
 		m_spongebobTexture->Bind();
+		auto m_Shader = m_ShaderLibrary.Get("Texture");
 		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
 		m_Texture->Bind();
 		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
@@ -90,7 +91,7 @@ private:
 	std::shared_ptr<Ablaze::VertexArray> m_VertexArray;
 	std::shared_ptr<Ablaze::VertexBuffer> m_VertexBuffer;
 	std::shared_ptr<Ablaze::IndexBuffer> m_IndexBuffer;
-	std::shared_ptr<Ablaze::Shader> m_Shader;
+	Ablaze::ShaderLibrary m_ShaderLibrary;
 	std::shared_ptr<Ablaze::Texture2D> m_Texture,m_spongebobTexture;
 
 	glm::vec3 m_CameraPosition;

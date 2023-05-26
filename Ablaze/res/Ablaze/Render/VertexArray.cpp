@@ -3,14 +3,14 @@
 #include "Renderer.h"
 #include "Ablaze/Platform/OpenGL/OpenGLVertexArray.h"
 namespace Ablaze {
-	VertexArray* VertexArray::Create()
+	std::shared_ptr<VertexArray> VertexArray::Create()
 	{
 		switch (Renderer::GetRendererAPI())
 		{
 		case RendererAPI::API::None:
 			ABLAZE_CORE_ASSERTS(false, "RendererAPI::None is currently not supported"); return nullptr;
 		case RendererAPI::API::OpenGL:
-			return new OpenGLVertexArray();
+			return std::make_shared<OpenGLVertexArray>();
 		}
 		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");
 		return nullptr;

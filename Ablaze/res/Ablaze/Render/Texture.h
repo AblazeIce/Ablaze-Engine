@@ -12,6 +12,6 @@ namespace Ablaze {
 	class Texture2D :public Texture {
 	public:
 		virtual ~Texture2D() = default;
-		static Texture2D* Create(const std::string& path);
+		static std::shared_ptr<Texture2D> Create(const std::string& path);
 	};
 }

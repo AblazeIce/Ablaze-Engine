@@ -92,7 +92,7 @@ namespace Ablaze {
 		virtual inline const BufferLayout& GetLayout() const = 0;
 		virtual inline void SetLayout(const BufferLayout& layout) = 0;
 
-		static VertexBuffer* Create(float* vertices, uint32_t size);
+		static std::shared_ptr<VertexBuffer> Create(float* vertices, uint32_t size);
 	};
 	class IndexBuffer {
 	public:
@@ -101,6 +101,6 @@ namespace Ablaze {
 		virtual void Unbind() const = 0;
 		virtual inline uint32_t GetCount() const = 0;
 
-		static IndexBuffer* Create(uint32_t* indices, uint32_t size);
+		static std::shared_ptr<IndexBuffer> Create(uint32_t* indices, uint32_t size);
 	};
 }

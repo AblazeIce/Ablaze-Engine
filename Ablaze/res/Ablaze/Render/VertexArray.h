@@ -14,6 +14,6 @@ namespace Ablaze {
 		virtual inline const std::vector<std::shared_ptr<VertexBuffer>>& GetVertexBuffers() const = 0;
 		virtual inline const std::shared_ptr<IndexBuffer>& GetIndexBuffers() const = 0;
 
-		static VertexArray* Create();
+		static std::shared_ptr<VertexArray> Create();
 	};
 }
