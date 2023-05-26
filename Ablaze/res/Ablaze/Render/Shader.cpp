@@ -15,4 +15,16 @@ namespace Ablaze {
 		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");
 		return nullptr;
 	}
+	Shader* Shader::Create(const std::string& filepath)
+	{
+		switch (Renderer::GetRendererAPI())
+		{
+		case RendererAPI::API::None:
+			ABLAZE_CORE_ASSERTS(false, "RendererAPI::None is currently not supported"); return nullptr;
+		case RendererAPI::API::OpenGL:
+			return new OpenGLShader(filepath);
+		}
+		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");
+		return nullptr;
+	}
 }
