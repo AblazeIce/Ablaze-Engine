@@ -8,7 +8,7 @@ class ExampleLayer :public Ablaze::Layer
 {
 public:
 	ExampleLayer()
-		:Layer("Example"),m_Camera(-1.0f,1.0f, -0.7f, 0.7f),m_CameraPosition(0.0f)
+		:Layer("Example"),m_CameraController(1280.0f/720.0f,true)
 	{
 		m_VertexArray=Ablaze::VertexArray::Create();
 
@@ -38,32 +38,19 @@ public:
 		auto m_Shader=m_ShaderLibrary.Load("Assets/Shaders/Texture.hlsl");
 
 		m_Texture=Ablaze::Texture2D::Create("Assets/Textures/1.png");
-		m_spongebobTexture=Ablaze::Texture2D::Create("Assets/Textures/spongebob.png");
-		std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformInt("m_Texture", 0);
+		m_spongebobTexture=Ablaze::Texture2D::Create("Assets/Textures/Õ∑œÒ’’.jpg");
+		//std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformInt("m_Texture", 0);
 	}
 	void OnUpdate(Ablaze::Timestep timestep) override
 	{
-		//ABLAZE_TRACE("Delta time:{0}s ({1}ms)", timestep.GetSeconds(), timestep.GetMilliseconds());
-		if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_LEFT))
-			m_CameraPosition.x += m_CameraMoveSpeed*timestep;
-		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_RIGHT))
-			m_CameraPosition.x -= m_CameraMoveSpeed * timestep;
-		if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_UP))
-			m_CameraPosition.y -= m_CameraMoveSpeed * timestep;
-		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_DOWN))
-			m_CameraPosition.y += m_CameraMoveSpeed * timestep;
-
-		if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_A))
-			m_CameraRotation-= m_CameraRotationSpeed * timestep;
-		else if (Ablaze::Input::isKeyPressed(ABLAZE_KEY_D))
-			m_CameraRotation += m_CameraRotationSpeed * timestep;
+		//Update
+		m_CameraController.Update(timestep);
 
 		Ablaze::RenderCommand::SetClearColor({ 0,0,0,1 });
 		Ablaze::RenderCommand::Clear();
 
-		m_Camera.SetPosition(m_CameraPosition);
-		m_Camera.SetRotation(m_CameraRotation);
-		Ablaze::Renderer::BeginScene(m_Camera);
+		
+		Ablaze::Renderer::BeginScene(m_CameraController.GetCamera());
 		//std::dynamic_pointer_cast<Ablaze::OpenGLShader>(m_Shader)->UploadUniformFloat3("u_Color", m_TriangleColor);
 		/*for (int i = 0; i < 10; ++i) {
 			for (int j = 0; j < 10; ++j) {
@@ -71,8 +58,8 @@ public:
 
 			}
 		}*/
-		m_spongebobTexture->Bind();
 		auto m_Shader = m_ShaderLibrary.Get("Texture");
+		m_spongebobTexture->Bind();
 		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
 		m_Texture->Bind();
 		Ablaze::Renderer::Submit(m_VertexArray, m_Shader, glm::translate(glm::mat4(1.0f), glm::vec3(0.0f))*glm::scale(glm::mat4(1.0f),glm::vec3(1.5f)));
@@ -82,6 +69,7 @@ public:
 	}
 	void OnEvent(Ablaze::Event& event) override
 	{
+		m_CameraController.OnEvent(event);
 	}
 	void OnImGuiRender() override
 	{
@@ -94,11 +82,8 @@ private:
 	Ablaze::ShaderLibrary m_ShaderLibrary;
 	std::shared_ptr<Ablaze::Texture2D> m_Texture,m_spongebobTexture;
 
-	glm::vec3 m_CameraPosition;
-	float m_CameraRotation = 0.0f;
-	float m_CameraMoveSpeed = 10.0f;
-	float m_CameraRotationSpeed = 100.0f;
-	Ablaze::OrthographicCamera m_Camera;
+	
+	Ablaze::OrthographicCameraController m_CameraController;
 
 };
 class Ice :public Ablaze::Application

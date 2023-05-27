@@ -19,7 +19,7 @@
 #include "Ablaze/Render/Texture.h"
 #include "Ablaze/Render/VertexArray.h"
 
-#include "Ablaze/Render/OrthographicCamera.h"
+#include "Ablaze/OrthographicCameraController.h"
 //---------------------------------------
 
 //------------程序进入口-----------------

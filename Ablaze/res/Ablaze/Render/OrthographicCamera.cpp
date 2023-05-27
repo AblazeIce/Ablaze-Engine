@@ -8,6 +8,12 @@ namespace Ablaze {
 	{
 		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
 	}
+	void OrthographicCamera::SetProjection(float left, float right, float bottom, float top)
+	{
+		m_ProjectionMatrix=glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
+		m_ViewProjectionMatrix = m_ProjectionMatrix * m_ViewMatrix;
+
+	}
 	void OrthographicCamera::RecalculateViewMatrix()
 	{
 		//理解：生成一个矩阵可以将摄像机先旋转后平移

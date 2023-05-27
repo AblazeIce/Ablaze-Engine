@@ -157,6 +157,7 @@
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h" />
     <ClInclude Include="res\Ablaze\Input.h" />
     <ClInclude Include="res\Ablaze\Log.h" />
+    <ClInclude Include="res\Ablaze\OrthographicCameraController.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h" />
     <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h" />
@@ -605,6 +606,7 @@
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Application.cpp" />
     <ClCompile Include="res\Ablaze\Log.cpp" />
+    <ClCompile Include="res\Ablaze\OrthographicCameraController.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp" />
     <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp" />
