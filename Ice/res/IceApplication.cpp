@@ -3,7 +3,7 @@
 #include "imgui.h"
 #include "glm/gtc/matrix_transform.hpp"
 #include <glm/gtc/type_ptr.hpp>
-#include "Ablaze/Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 class ExampleLayer :public Ablaze::Layer
 {
 public:

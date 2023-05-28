@@ -13,29 +13,20 @@
     <Filter Include="res\Ablaze\Event">
       <UniqueIdentifier>{DE5CB484-CA55-D3D6-F387-B85BDFDFB2E2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\Ablaze\Platform">
-      <UniqueIdentifier>{C1884007-2DEA-1D15-B657-64C722B854D4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="res\Ablaze\Platform\OpenGL">
-      <UniqueIdentifier>{D5AE5558-C1BE-0129-2A78-664716A7F0C1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="res\Ablaze\Platform\Window">
-      <UniqueIdentifier>{8812856A-7422-313B-DDDB-9559C90A20D4}</UniqueIdentifier>
+    <Filter Include="res\Ablaze\ImGui">
+      <UniqueIdentifier>{B750F784-A349-16D7-CC7B-FB5BB8D3F5E2}</UniqueIdentifier>
     </Filter>
     <Filter Include="res\Ablaze\Render">
       <UniqueIdentifier>{9C2B6438-0842-62CE-51B9-EDEFBD0E3356}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\Codes">
-      <UniqueIdentifier>{CC98860E-3803-3B85-8141-EC2AEDEA18DA}</UniqueIdentifier>
+    <Filter Include="res\Platform">
+      <UniqueIdentifier>{834A032F-6FAD-92D3-1833-CB8904755E56}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\ImGui">
-      <UniqueIdentifier>{B999F10E-2504-A685-6E42-572BDAEB83DA}</UniqueIdentifier>
+    <Filter Include="res\Platform\OpenGL">
+      <UniqueIdentifier>{57A2389D-C303-16AB-4C71-5C5DB8D14C6A}</UniqueIdentifier>
     </Filter>
-    <Filter Include="res\Layer">
-      <UniqueIdentifier>{5B21220F-C78B-D685-10CA-872B7C73B4DA}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="res\pch">
-      <UniqueIdentifier>{3964043F-A543-83DA-AE5B-0EB11ABAE93B}</UniqueIdentifier>
+    <Filter Include="res\Platform\Window">
+      <UniqueIdentifier>{0A0668AF-7667-45BD-FFD4-8B6F6B357C7C}</UniqueIdentifier>
     </Filter>
     <Filter Include="vendor">
       <UniqueIdentifier>{B3738122-9F15-ACF8-88D0-BF4C74113349}</UniqueIdentifier>
@@ -66,17 +57,38 @@
     <ClInclude Include="res\Ablaze.h">
       <Filter>res</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Application.h">
-      <Filter>res\Ablaze</Filter>
+    <ClInclude Include="res\Ablaze\Core\Application.h">
+      <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Core.h">
-      <Filter>res\Ablaze</Filter>
+    <ClInclude Include="res\Ablaze\Core\Core.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\EntryPoint.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\Input.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\KeyCodes.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\Layer.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\LayerStack.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\Log.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\MouseButtonCodes.h">
+      <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Core\Timestep.h">
       <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\EntryPoint.h">
-      <Filter>res\Ablaze</Filter>
+    <ClInclude Include="res\Ablaze\Core\Window.h">
+      <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Event\ApplicationEvent.h">
       <Filter>res\Ablaze\Event</Filter>
@@ -90,44 +102,8 @@
     <ClInclude Include="res\Ablaze\Event\MouseEvent.h">
       <Filter>res\Ablaze\Event</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Input.h">
-      <Filter>res\Ablaze</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Log.h">
-      <Filter>res\Ablaze</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLContext.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLShader.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3_loader.h">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\Window\WinInput.h">
-      <Filter>res\Ablaze\Platform\Window</Filter>
-    </ClInclude>
-    <ClInclude Include="res\Ablaze\Platform\Window\WinWindow.h">
-      <Filter>res\Ablaze\Platform\Window</Filter>
+    <ClInclude Include="res\Ablaze\ImGui\ImGuiLayer.h">
+      <Filter>res\Ablaze\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\Buffer.h">
       <Filter>res\Ablaze\Render</Filter>
@@ -136,6 +112,9 @@
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\OrthographicCamera.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\OrthographicCameraController.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\RenderCommand.h">
@@ -156,26 +135,41 @@
     <ClInclude Include="res\Ablaze\Render\VertexArray.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Window.h">
-      <Filter>res\Ablaze</Filter>
+    <ClInclude Include="res\AblazePch.h">
+      <Filter>res</Filter>
     </ClInclude>
-    <ClInclude Include="res\Codes\KeyCodes.h">
-      <Filter>res\Codes</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLBuffer.h">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="res\Codes\MouseButtonCodes.h">
-      <Filter>res\Codes</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLContext.h">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="res\ImGui\ImGuiLayer.h">
-      <Filter>res\ImGui</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLRendererAPI.h">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="res\Layer\Layer.h">
-      <Filter>res\Layer</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLShader.h">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="res\Layer\LayerStack.h">
-      <Filter>res\Layer</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLTexture.h">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="res\pch\AblazePch.h">
-      <Filter>res\pch</Filter>
+    <ClInclude Include="res\Platform\OpenGL\OpenGLVertexArray.h">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Platform\OpenGL\imgui_impl_glfw.h">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Platform\OpenGL\imgui_impl_opengl3.h">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Platform\OpenGL\imgui_impl_opengl3_loader.h">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Platform\Window\WinInput.h">
+      <Filter>res\Platform\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Platform\Window\WinWindow.h">
+      <Filter>res\Platform\Window</Filter>
     </ClInclude>
     <ClInclude Include="vendor\glm\glm\common.hpp">
       <Filter>vendor\glm\glm</Filter>
@@ -1428,49 +1422,33 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\OrthographicCameraController.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="res\Ablaze\Application.cpp">
-      <Filter>res\Ablaze</Filter>
+    <ClCompile Include="res\Ablaze\Core\Application.cpp">
+      <Filter>res\Ablaze\Core</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Log.cpp">
-      <Filter>res\Ablaze</Filter>
+    <ClCompile Include="res\Ablaze\Core\Layer.cpp">
+      <Filter>res\Ablaze\Core</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLBuffer.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    <ClCompile Include="res\Ablaze\Core\LayerStack.cpp">
+      <Filter>res\Ablaze\Core</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLContext.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    <ClCompile Include="res\Ablaze\Core\Log.cpp">
+      <Filter>res\Ablaze\Core</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLRendererAPI.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
+    <ClCompile Include="res\Ablaze\ImGui\ImGuiBuild.cpp">
+      <Filter>res\Ablaze\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLShader.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLTexture.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\OpenGLVertexArray.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_glfw.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\OpenGL\imgui_impl_opengl3.cpp">
-      <Filter>res\Ablaze\Platform\OpenGL</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\Window\WinInput.cpp">
-      <Filter>res\Ablaze\Platform\Window</Filter>
-    </ClCompile>
-    <ClCompile Include="res\Ablaze\Platform\Window\WinWindow.cpp">
-      <Filter>res\Ablaze\Platform\Window</Filter>
+    <ClCompile Include="res\Ablaze\ImGui\ImGuiLayer.cpp">
+      <Filter>res\Ablaze\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Render\Buffer.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Render\OrthographicCamera.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\OrthographicCameraController.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Render\RenderCommand.cpp">
@@ -1491,24 +1469,41 @@
     <ClCompile Include="res\Ablaze\Render\VertexArray.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
-    <ClCompile Include="res\ImGui\ImGuiBuild.cpp">
-      <Filter>res\ImGui</Filter>
+    <ClCompile Include="res\AblazePch.cpp">
+      <Filter>res</Filter>
     </ClCompile>
-    <ClCompile Include="res\ImGui\ImGuiLayer.cpp">
-      <Filter>res\ImGui</Filter>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLBuffer.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="res\Layer\Layer.cpp">
-      <Filter>res\Layer</Filter>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLContext.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="res\Layer\LayerStack.cpp">
-      <Filter>res\Layer</Filter>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLRendererAPI.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
     </ClCompile>
-    <ClCompile Include="res\pch\AblazePch.cpp">
-      <Filter>res\pch</Filter>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLShader.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLTexture.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\OpenGL\OpenGLVertexArray.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\OpenGL\imgui_impl_glfw.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\OpenGL\imgui_impl_opengl3.cpp">
+      <Filter>res\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\Window\WinInput.cpp">
+      <Filter>res\Platform\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Platform\Window\WinWindow.cpp">
+      <Filter>res\Platform\Window</Filter>
     </ClCompile>
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\OrthographicCameraController.cpp" />
   </ItemGroup>
 </Project>

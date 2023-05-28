@@ -1,6 +1,6 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "RenderCommand.h"
-#include "Ablaze/Platform/OpenGL/OpenGLRendererAPI.h"
+#include "Platform/OpenGL/OpenGLRendererAPI.h"
 
 namespace Ablaze {
 	RendererAPI* RenderCommand::s_RendererAPI = new OpenGLRendererAPI;

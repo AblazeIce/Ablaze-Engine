@@ -1,7 +1,7 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "Shader.h"
 #include "Renderer.h"
-#include "Ablaze/Platform/OpenGL/OpenGLShader.h"
+#include "Platform/OpenGL/OpenGLShader.h"
 namespace Ablaze {
 	std::shared_ptr<Shader> Shader::Create(const std::string& name, const std::string& vertexSrc, const std::string& fragmentSrc)
 	{

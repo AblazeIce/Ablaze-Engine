@@ -1,7 +1,7 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "Texture.h"
 #include "Ablaze/Render/Renderer.h"
-#include "Ablaze/Platform/OpenGL/OpenGLTexture.h"
+#include "Platform/OpenGL/OpenGLTexture.h"
 namespace Ablaze {
 	std::shared_ptr<Texture2D> Texture2D::Create(const std::string& path)
 	{

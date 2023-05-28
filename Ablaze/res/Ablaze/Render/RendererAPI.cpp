@@ -1,4 +1,4 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "RendererAPI.h"
 
 namespace Ablaze {

@@ -1,7 +1,7 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "Buffer.h"
 #include "Renderer.h"
-#include "Ablaze/Platform/OpenGL/OpenGLBuffer.h"
+#include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Ablaze {
 	std::shared_ptr<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)

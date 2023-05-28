@@ -1,7 +1,7 @@
-#include "pch/AblazePch.h"
+#include "AblazePch.h"
 #include "VertexArray.h"
 #include "Renderer.h"
-#include "Ablaze/Platform/OpenGL/OpenGLVertexArray.h"
+#include "Platform/OpenGL/OpenGLVertexArray.h"
 namespace Ablaze {
 	std::shared_ptr<VertexArray> VertexArray::Create()
 	{

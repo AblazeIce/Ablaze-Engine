@@ -1,14 +1,14 @@
 #pragma once
-#include "Ablaze/Application.h"
-#include "Layer/Layer.h"
-#include "Ablaze/Log.h"
+#include "Ablaze/Core/Application.h"
+#include "Ablaze/Core/Layer.h"
+#include "Ablaze/Core/Log.h"
 
 #include "Ablaze/Core/Timestep.h"
-#include "ImGui/ImGuiLayer.h"
+#include "Ablaze/ImGui/ImGuiLayer.h"
 
-#include "Codes/KeyCodes.h"
-#include "Codes/MouseButtonCodes.h"
-#include "Ablaze/Input.h"
+#include "Ablaze/Core/KeyCodes.h"
+#include "Ablaze/Core/MouseButtonCodes.h"
+#include "Ablaze/Core/Input.h"
 
 //--------渲染---------------------------
 #include "Ablaze/Render/Renderer.h"
@@ -19,9 +19,9 @@
 #include "Ablaze/Render/Texture.h"
 #include "Ablaze/Render/VertexArray.h"
 
-#include "Ablaze/OrthographicCameraController.h"
+#include "Ablaze/Render/OrthographicCameraController.h"
 //---------------------------------------
 
 //------------程序进入口-----------------
-#include "Ablaze/EntryPoint.h"
+#include "Ablaze/Core/EntryPoint.h"
 //---------------------------------------

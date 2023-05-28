@@ -33,9 +33,9 @@ project "Ablaze"
     targetdir("bin/"..outputdir.."/%{prj.name}")
     targetdir("bin-int/"..outputdir.."/%{prj.name}")
     -- 生成.pch预编译头文件
-    pchsource "%{prj.name}/res/pch/AblazePch.cpp"
+    pchsource "%{prj.name}/res/AblazePch.cpp"
     -- 使用生成的预编译头文件
-    pchheader "pch/AblazePch.h"
+    pchheader "AblazePch.h"
 
     files
     {

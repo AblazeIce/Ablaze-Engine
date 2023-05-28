@@ -1,6 +1,6 @@
 #pragma once
-#include "pch/AblazePch.h"
-#include "Ablaze/Core.h"
+#include "AblazePch.h"
+#include "Ablaze/Core/Core.h"
 
 namespace Ablaze {
 	enum class EventType
