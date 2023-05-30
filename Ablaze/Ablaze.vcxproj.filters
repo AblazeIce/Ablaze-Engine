@@ -10,6 +10,9 @@
     <Filter Include="res\Ablaze\Core">
       <UniqueIdentifier>{45420404-B1CD-71C8-BADE-F4BC26E9CDC8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res\Ablaze\Debug">
+      <UniqueIdentifier>{03E69884-EFDE-B7D6-1811-9D5B046997E2}</UniqueIdentifier>
+    </Filter>
     <Filter Include="res\Ablaze\Event">
       <UniqueIdentifier>{DE5CB484-CA55-D3D6-F387-B85BDFDFB2E2}</UniqueIdentifier>
     </Filter>
@@ -84,11 +87,17 @@
     <ClInclude Include="res\Ablaze\Core\MouseButtonCodes.h">
       <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Core\Timer.h">
+      <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
     <ClInclude Include="res\Ablaze\Core\Timestep.h">
       <Filter>res\Ablaze\Core</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Core\Window.h">
       <Filter>res\Ablaze\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Debug\Instrumentor.h">
+      <Filter>res\Ablaze\Debug</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Event\ApplicationEvent.h">
       <Filter>res\Ablaze\Event</Filter>
@@ -121,6 +130,9 @@
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\Renderer.h">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Renderer2D.h">
       <Filter>res\Ablaze\Render</Filter>
     </ClInclude>
     <ClInclude Include="res\Ablaze\Render\RendererAPI.h">
@@ -1422,9 +1434,6 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="res\Ablaze\Render\Renderer2D.h" />
-    <ClInclude Include="res\Ablaze\Core\Timer.h" />
-    <ClInclude Include="res\Ablaze\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Core\Application.cpp">
@@ -1458,6 +1467,9 @@
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Render\Renderer.cpp">
+      <Filter>res\Ablaze\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Renderer2D.cpp">
       <Filter>res\Ablaze\Render</Filter>
     </ClCompile>
     <ClCompile Include="res\Ablaze\Render\RendererAPI.cpp">
@@ -1508,6 +1520,5 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="res\Ablaze\Render\Renderer2D.cpp" />
   </ItemGroup>
 </Project>

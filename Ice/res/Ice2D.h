@@ -18,15 +18,12 @@ public:
 	virtual void OnEvent(Ablaze::Event& event) override;
 
 private:
-	std::shared_ptr<Ablaze::VertexArray> m_VA;
-	Ablaze::ShaderLibrary m_ShaderLibrary;
-	std::shared_ptr<Ablaze::Texture2D> m_Texture;
+	std::shared_ptr<Ablaze::Texture2D> m_CheckerboardTexture;
+	std::shared_ptr<Ablaze::Texture2D> m_spongebobTexture;
 	Ablaze::OrthographicCameraController m_CameraController;
 
-	glm::vec4 m_Color;
+	glm::vec4 u_Color;
 
 private:
 	
-
-
 };

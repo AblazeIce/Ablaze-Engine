@@ -31,7 +31,7 @@ namespace Ablaze {
 		uint32_t Size;
 		uint32_t Offset;
 		bool Normalized;
-		BufferElement(){}
+		BufferElement() = default;
 		BufferElement(ShaderDataType type,const std::string& name,bool normalized=false)
 			:Name(name),Type(type),Size(ShaderDataTypeSize(type)),Offset(0),Normalized(normalized){}
 
@@ -58,7 +58,7 @@ namespace Ablaze {
 
 	class BufferLayout {
 	public:
-		BufferLayout(){}
+		BufferLayout() = default;
 		BufferLayout(const std::initializer_list<BufferElement>& elements)
 			:m_Elements(elements){
 			CalculateOffsetAndStride();
@@ -89,9 +89,12 @@ namespace Ablaze {
 		virtual void Bind() const = 0;
 		virtual void Unbind() const = 0;
 
+		virtual void SetData(const void* data, uint32_t size) = 0;
+
 		virtual inline const BufferLayout& GetLayout() const = 0;
 		virtual inline void SetLayout(const BufferLayout& layout) = 0;
 
+		static std::shared_ptr<VertexBuffer> Create(uint32_t size);
 		static std::shared_ptr<VertexBuffer> Create(float* vertices, uint32_t size);
 	};
 	class IndexBuffer {

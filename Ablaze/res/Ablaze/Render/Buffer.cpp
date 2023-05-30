@@ -4,6 +4,18 @@
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Ablaze {
+	std::shared_ptr<VertexBuffer> VertexBuffer::Create(uint32_t size)
+	{
+		switch (Renderer::GetRendererAPI())
+		{
+		case RendererAPI::API::None:
+			ABLAZE_CORE_ASSERTS(false, "RendererAPI::None is currently not supported"); return nullptr;
+		case RendererAPI::API::OpenGL:
+			return std::make_shared<OpenGLVertexBuffer>(size);
+		}
+		ABLAZE_CORE_ASSERTS(false, "Unknown RendererAPI!");
+		return nullptr;
+	}
 	std::shared_ptr<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetRendererAPI())

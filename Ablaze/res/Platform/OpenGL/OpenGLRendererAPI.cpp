@@ -23,9 +23,12 @@ namespace Ablaze {
 	{
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	}
-	void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray)
+	void OpenGLRendererAPI::DrawIndexed(const std::shared_ptr<VertexArray>& vertexArray, uint32_t indexCount)
 	{
-		glDrawElements(GL_TRIANGLES, vertexArray->GetIndexBuffers()->GetCount(), GL_UNSIGNED_INT, nullptr);
+		uint32_t count = indexCount ? vertexArray->GetIndexBuffers()->GetCount() : indexCount;
+		//-------如果传入的count==0,相当于不绘制
+		glDrawElements(GL_TRIANGLES, count, GL_UNSIGNED_INT, nullptr);
+		//每次绘制完毕，解绑Texture
 		glBindTexture(GL_TEXTURE_2D, 0);
 	}
 }

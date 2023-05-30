@@ -116,7 +116,7 @@ namespace Ablaze {
 		bool m_Stopped;
 	};
 }
-#define ABLAZE_PROFILE 1
+#define ABLAZE_PROFILE 0
 #if ABLAZE_PROFILE
 #define ABLAZE_PROFILE_BEGIN_SESSION(name, filepath) ::Ablaze::Instrumentor::Get().BeginSession(name, filepath)
 #define ABLAZE_PROFILE_END_SESSION() ::Ablaze::Instrumentor::Get().EndSession()
