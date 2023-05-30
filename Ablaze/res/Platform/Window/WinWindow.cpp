@@ -9,7 +9,7 @@
 
 #include "Ablaze/Core/Log.h"
 namespace Ablaze {
-	static bool s_GLFWInitialized = false;
+	static int s_GLFWindowCount = 0;
 	static void GLFWErrorCallback(int error, const char* description)
 	{
 		ABLAZE_CORE_ERROR("GLFW Error ({0}):{1}", error, description);
@@ -20,23 +20,31 @@ namespace Ablaze {
 
 	WinWindow::WinWindow(const WindowProps& props)
 	{
-		Init(props);
+		ABLAZE_PROFILE_FUNCTION()
+
+			Init(props);
 	}
 
 	WinWindow::~WinWindow()
 	{
-		ShutDown();
+		ABLAZE_PROFILE_FUNCTION()
+
+			ShutDown();
 	}
 
 	void WinWindow::OnUpdate()
 	{
-		//接受窗口Event
-		glfwPollEvents();
+		ABLAZE_PROFILE_FUNCTION()
+
+			//接受窗口Event
+			glfwPollEvents();
 		m_OpenGLContext->SwapBuffers();
 	}
 
 	void WinWindow::SetVSync(bool enabled)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		if (enabled)
 			glfwSwapInterval(1);
 		else
@@ -52,20 +60,26 @@ namespace Ablaze {
 
 	void WinWindow::Init(const WindowProps& props)
 	{
-		m_Data.Title = props.Title;
+		ABLAZE_PROFILE_FUNCTION()
+
+			m_Data.Title = props.Title;
 		m_Data.Width = props.Width;
 		m_Data.Height = props.Height;
 
 		ABLAZE_CORE_INFO("Creating Window {0},{1},{2}", props.Title, props.Width, props.Height);
-		if (!s_GLFWInitialized) {
-			int success = glfwInit();
+		if (s_GLFWindowCount == 0) {
+			ABLAZE_PROFILE_SCOPE("glfwInit")
+				int success = glfwInit();
 			ABLAZE_CORE_ASSERTS(success, "Could not intialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
-			s_GLFWInitialized = true;
 		}
-			
-		m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
-		
+		{
+
+			ABLAZE_PROFILE_SCOPE("glfwCreateWindow")
+			m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
+			++s_GLFWindowCount;
+		}
+
 		m_OpenGLContext = new OpenGLContext(m_Window);
 		m_OpenGLContext->Init();
 
@@ -175,6 +189,8 @@ namespace Ablaze {
 
 	void WinWindow::ShutDown()
 	{
+		ABLAZE_PROFILE_FUNCTION()
 		glfwDestroyWindow(m_Window);
+		--s_GLFWindowCount;
 	}
 }

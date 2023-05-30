@@ -156,8 +156,10 @@
     <ClInclude Include="res\Ablaze\Core\LayerStack.h" />
     <ClInclude Include="res\Ablaze\Core\Log.h" />
     <ClInclude Include="res\Ablaze\Core\MouseButtonCodes.h" />
+    <ClInclude Include="res\Ablaze\Core\Timer.h" />
     <ClInclude Include="res\Ablaze\Core\Timestep.h" />
     <ClInclude Include="res\Ablaze\Core\Window.h" />
+    <ClInclude Include="res\Ablaze\Debug\Instrumentor.h" />
     <ClInclude Include="res\Ablaze\Event\ApplicationEvent.h" />
     <ClInclude Include="res\Ablaze\Event\Event.h" />
     <ClInclude Include="res\Ablaze\Event\KeyEvent.h" />
@@ -169,6 +171,7 @@
     <ClInclude Include="res\Ablaze\Render\OrthographicCameraController.h" />
     <ClInclude Include="res\Ablaze\Render\RenderCommand.h" />
     <ClInclude Include="res\Ablaze\Render\Renderer.h" />
+    <ClInclude Include="res\Ablaze\Render\Renderer2D.h" />
     <ClInclude Include="res\Ablaze\Render\RendererAPI.h" />
     <ClInclude Include="res\Ablaze\Render\Shader.h" />
     <ClInclude Include="res\Ablaze\Render\Texture.h" />
@@ -615,6 +618,7 @@
     <ClCompile Include="res\Ablaze\Render\OrthographicCameraController.cpp" />
     <ClCompile Include="res\Ablaze\Render\RenderCommand.cpp" />
     <ClCompile Include="res\Ablaze\Render\Renderer.cpp" />
+    <ClCompile Include="res\Ablaze\Render\Renderer2D.cpp" />
     <ClCompile Include="res\Ablaze\Render\RendererAPI.cpp" />
     <ClCompile Include="res\Ablaze\Render\Shader.cpp" />
     <ClCompile Include="res\Ablaze\Render\Texture.cpp" />

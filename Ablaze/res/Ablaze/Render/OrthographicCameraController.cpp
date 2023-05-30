@@ -10,6 +10,8 @@ namespace Ablaze {
 	}
 	void OrthographicCameraController::Update(Timestep& timestep)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		if (Input::isKeyPressed(ABLAZE_KEY_A))
 			m_CameraPosition.x += m_CameraTranslationSpeed * timestep;
 		else if (Input::isKeyPressed(ABLAZE_KEY_D))
@@ -30,6 +32,8 @@ namespace Ablaze {
 	}
 	void OrthographicCameraController::OnEvent(Event& e)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		EventDispatcher dispatcher(e);
 		dispatcher.Dispatch<MouseScrolledEvent>(BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
 		dispatcher.Dispatch<WindowResizeEvent>(BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
@@ -38,6 +42,8 @@ namespace Ablaze {
 	//-----改变缩放级别------
 	bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		m_ZoomLevel -= e.GetYOffset()*0.5f;
 		m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
@@ -46,6 +52,8 @@ namespace Ablaze {
 	//-----改变正交投影视口的宽高比-----
 	bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		m_AspectRatio = (float)e.GetWidth() /(float)e.GetHeight();
 		m_Camera.SetProjection(-m_AspectRatio * m_ZoomLevel, m_AspectRatio * m_ZoomLevel, -m_ZoomLevel, m_ZoomLevel);
 		return false;

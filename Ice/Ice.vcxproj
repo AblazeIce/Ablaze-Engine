@@ -134,12 +134,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="res\Ice2D.cpp" />
     <ClCompile Include="res\IceApplication.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ablaze\Ablaze.vcxproj">
       <Project>{B49CA8A6-A03E-D37C-89F9-E6D0753A5ACD}</Project>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="res\Ice2D.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

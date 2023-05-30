@@ -9,14 +9,17 @@ namespace Ablaze
 
 	Application::Application()
 	{
+		ABLAZE_PROFILE_FUNCTION()
 		ABLAZE_CORE_ASSERTS(!s_Instance, "Application already exists");
 		s_Instance = this;
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(Application::OnEvent));
 
-		//启动混合
+		//-----启动混合------
+		//-----加载2D渲染上下文------
 		Renderer::Init();
+	
 
 		m_ImGuiLayer =new ImGuiLayer();
 		PushOverLayer(m_ImGuiLayer);
@@ -25,6 +28,8 @@ namespace Ablaze
 	}
 	void Application::OnEvent(Event& e)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		//为传进来的每个事件生成一个事件句柄
 		EventDispatcher dispatcher(e);
 		//如果回调事件e为WindowCloseEvent,则调用OnWindowClose函数以结束Run()函数(关闭窗口);
@@ -41,6 +46,8 @@ namespace Ablaze
 
 	void Application::PushLayer(Layer* layer)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		m_LayerStack.PushLayer(layer);
 		//设置该层的上下文、初始化...
 		layer->OnAttach();
@@ -48,6 +55,8 @@ namespace Ablaze
 
 	void Application::PushOverLayer(Layer* layer)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		m_LayerStack.PushOverlay(layer);
 		//设置该层的上下文、初始化...
 		layer->OnAttach();
@@ -61,6 +70,8 @@ namespace Ablaze
 
 	bool Application::OnWindowResize(WindowResizeEvent& e)
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		if (e.GetWidth() == 0 || e.GetHeight() == 0) {
 			m_Minimized = true;
 			return false;
@@ -72,18 +83,24 @@ namespace Ablaze
 
 	Application::~Application()
 	{
+		ABLAZE_PROFILE_FUNCTION()
+		Renderer::Shutdown();
 	}
 
 	void Application::Run()
 	{
+		ABLAZE_PROFILE_FUNCTION()
+
 		while (m_isRunning)
 		{
+			ABLAZE_PROFILE_SCOPE("RunLoop")
 			float time = (float)glfwGetTime();
 			Timestep timestep = time - m_LastFrameTime;
 			m_LastFrameTime = time;
 
 			if (!m_Minimized)
 			{
+				ABLAZE_PROFILE_SCOPE("LayerStack OnUpdate")
 				for (auto& layer : m_LayerStack) {
 					layer->OnUpdate(timestep);
 				}
@@ -91,6 +108,7 @@ namespace Ablaze
 
 			}
 			m_ImGuiLayer->Begin();
+			//ABLAZE_PROFILE_SCOPE("LayerStack OnImGuiRender")
 			for (auto& layer : m_LayerStack) {
 				layer->OnImGuiRender();
 			}

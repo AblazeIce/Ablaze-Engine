@@ -15,6 +15,7 @@
 #include <unordered_set>
 
 #include "Ablaze/Core/Log.h"
+#include "Ablaze/Debug/Instrumentor.h"
 
 #ifdef ABLAZE_PLATFORM_WINDOWS
 #include <Windows.h>

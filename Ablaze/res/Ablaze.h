@@ -12,6 +12,7 @@
 
 //--------渲染---------------------------
 #include "Ablaze/Render/Renderer.h"
+#include "Ablaze/Render/Renderer2D.h"
 #include "Ablaze/Render/RenderCommand.h"
 
 #include "Ablaze/Render/Shader.h"
@@ -22,6 +23,3 @@
 #include "Ablaze/Render/OrthographicCameraController.h"
 //---------------------------------------
 
-//------------程序进入口-----------------
-#include "Ablaze/Core/EntryPoint.h"
-//---------------------------------------

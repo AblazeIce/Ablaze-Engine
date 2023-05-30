@@ -1422,6 +1422,9 @@
     <ClInclude Include="vendor\stb_image\stb_image.h">
       <Filter>vendor\stb_image</Filter>
     </ClInclude>
+    <ClInclude Include="res\Ablaze\Render\Renderer2D.h" />
+    <ClInclude Include="res\Ablaze\Core\Timer.h" />
+    <ClInclude Include="res\Ablaze\Debug\Instrumentor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="res\Ablaze\Core\Application.cpp">
@@ -1505,5 +1508,6 @@
     <ClCompile Include="vendor\stb_image\stb_image.cpp">
       <Filter>vendor\stb_image</Filter>
     </ClCompile>
+    <ClCompile Include="res\Ablaze\Render\Renderer2D.cpp" />
   </ItemGroup>
 </Project>
