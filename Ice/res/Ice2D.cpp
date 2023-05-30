@@ -35,11 +35,14 @@ void Ice2D::OnUpdate(Ablaze::Timestep timestep)
 	{
 		ABLAZE_PROFILE_SCOPE("Renderer Draw");
 		Ablaze::Renderer2D::BeginScene(m_CameraController.GetCamera());
-		/*Ablaze::Renderer2D::DrawRotatedQuad({ -1,0 }, { 1.0f,1.0f }, glm::radians(-45.0f),{ 1,0,0,1 });
+		Ablaze::Renderer2D::DrawRotatedQuad({ -1,0 }, { 1.0f,1.0f }, glm::radians(-45.0f),{ 1,0,0,1 });
 		Ablaze::Renderer2D::DrawRotatedQuad({ 0,2 }, { 1.0f,1.0f }, glm::radians(-45.0f), m_spongebobTexture);
-		Ablaze::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture, 10.0f,u_Color);*/
-		Ablaze::Renderer2D::DrawQuad({ 0.0f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
+
+		//Ablaze::Renderer2D::DrawQuad({ 0.0f, 0.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture, 10.0f,u_Color);
+		//Ablaze::Renderer2D::DrawQuad({ 0.5f, 0.0f }, { 0.8f, 0.8f }, { 0.8f, 0.2f, 0.3f, 1.0f });
 		Ablaze::Renderer2D::DrawQuad({ 0.5f, -0.5f }, { 0.5f, 0.75f }, { 0.2f, 0.3f, 0.8f, 1.0f });
+		Ablaze::Renderer2D::DrawQuad({ -5.0f, -5.0f, -0.1f }, { 10.0f, 10.0f }, m_CheckerboardTexture, 10.0f);
+		//Ablaze::Renderer2D::DrawQuad({ -0.5f, -0.5f, 0.0f }, { 1.0f, 1.0f }, m_CheckerboardTexture, 20.0f);
 		Ablaze::Renderer2D::EndScene();
 	}
 }
